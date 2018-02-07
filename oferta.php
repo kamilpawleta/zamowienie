@@ -27,7 +27,8 @@ while (($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) != NULL) {
     echo '<td>' . $row['id'] . '</td>';
     echo '<td>' . $row['Asortyment'] . '</td>';
     echo '<td>' . $row['Cena'] . '</td>';
-    echo '<td>' . $row['Zdjęcie'] . '</td>';
+    $src = $row['Zdjęcie'];
+    echo '<td><img src="'.$src.'" alt="kwiatek"/></td>';
     echo '</tr>';
 }
 mysqli_free_result($result);
