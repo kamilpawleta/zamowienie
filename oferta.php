@@ -1,6 +1,8 @@
 <html>
     <head>
         <title>title</title>
+        <!--BOOTSTRAP-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
     <body>
 <?php
@@ -12,9 +14,9 @@ mysqli_query($conn, 'SET NAMES \'utf8\'');
 // TODO: insert your code here.
 
 
-echo '<table>';
+echo '<table class="table table-striped">';
 echo '<tr>';
-echo '<th>id</th>';
+echo '<th class="thead-dark">id</th>';
 echo '<th>Asortyment</th>';
 echo '<th>Cena</th>';
 echo '<th>Zdjęcie</th>';
