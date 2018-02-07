@@ -4,6 +4,14 @@
     </head>
     <body>
 <?php
+$conn1 = mysqli_connect('kamilpawleta.pl', 'pawletak', 'aIuPPm56', 'pawletak_db?zeroDateTimeBehavior=convertToNull', '3306');
+if (!$conn1) {
+    die('Could not connect to MySQL: ' . mysqli_connect_error());
+}
+mysqli_query($conn1, 'SET NAMES \'utf8\'');
+// TODO: insert your code here.
+mysqli_close($conn1);
+
 echo '<table>';
 echo '<tr>';
 echo '<th>Asortyment</th>';
