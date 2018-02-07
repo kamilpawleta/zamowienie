@@ -1,0 +1,79 @@
+-- create table kamilp (
+
+-- id int auto_increment primary key,
+
+-- imie varchar(20) not null,
+
+-- nazwisko varchar(20) not null,
+
+-- projekt varchar (50) not null,
+
+-- data_dodania datetime default now(),
+
+-- ocena float )
+
+/*
+INSERT INTO kamilp(imie, nazwisko, projekt)
+
+VALUES ('Kamil','Pawleta','Strzelanie do kaczek'),
+
+('Kamil','Pawleta','Strzelanie do misiów'),
+
+('Kamil','Pawleta','Strzelanie do królików'),
+('Kamil','Pawleta','Strzelanie do rybek')*/
+
+
+-- SELECT * FROM kamilp
+
+-- SELECT projekt AS 'do zrobienia'  FROM kamilp
+
+-- SELECT * FROM kamilp WHERE id = 3
+
+-- SELECT * FROM samochody order by 1
+ 
+-- LIMIT 100, 100;-- ile rekordow ma sie wyswietlac na stronie
+
+-- SELECT * FROM samochody WHERE lokalizacja LIKE 'Pomorskie' -- like => = tylko dziala szybciej 
+-- SELECT COUNT(*) as 'liczba wpisow' FROM samochody WHERE lokalizacja LIKE 'Pomorskie' OR lokalizacja LIKE 'Kujawsko-Pomorskie'
+-- SELECT COUNT(*) as 'liczba wpisow' FROM samochody WHERE lokalizacja IN ('Pomorskie','Kujawsko-Pomorskie')
+-- SELECT COUNT(*) as 'liczba wpisow' FROM samochody WHERE lokalizacja LIKE '%Pomorskie'
+
+-- SELECT * FROM samochody WHERE rocznik IN (2007,2008,2009,2010)
+-- SELECT * FROM samochody WHERE rocznik >= 2007 AND rocznik <= 2010
+-- SELECT * FROM samochody WHERE rocznik BETWEEN 2007 AND 2010
+-- SELECT marka_pojazdu, cena, Rodzaj_paliwa, rocznik from samochody ORDER BY rodzaj_paliwa, rocznik, marka_pojazdu 
+-- SELECT Rodzaj_paliwa, COUNT(*) as 'ilosc aut' FROM samochody GROUP BY Rodzaj_paliwa
+-- SELECT Rodzaj_paliwa, marka_pojazdu,COUNT(*) as 'ilosc aut' FROM samochody GROUP BY Rodzaj_paliwa, marka_pojazdu
+-- (rodzaj paliwa like benzyna OR rodzaj paliwa like lpg) !!!!!!!!!!!! wazne zeby bylo w nawiasach bo oddzialuje na calosc
+-- SELECT * FROM samochody WHERE rocznik > 2008 AND Aktualny_przebieg BETWEEN 80000 AND 120000 AND Lokalizacja NOT LIKE ('Œwiêtokrzyskie') AND Typ_nadwozia LIKE ('Sedan') AND Rodzaj_paliwa IN ('Benzyna', 'LPG')
+-- SELECT * FROM kamilp
+-- UPDATE kamilp SET ocena=4.5 WHERE id=3
+
+-- UPDATE kamilp set ocena=5.0, data_dodania='2018-01-29 14:44:00' WHERE id =3
+-- delete from kamilp where id>2
+-- ALTER TABLE kamilp CHANGE COLUMN `data_dodania` `data_aktualizacji` DATETIME NOT NULL DEFAULT now()
+-- 
+-- ALTER TABLE kamilp ADD COLUMN technologia_id INT NOT NULL 
+
+/*CREATE TABLE kamilp_technologie (
+id int auto_increment primary key,
+technologia varchar (30) not null
+)*/
+-- INSERT INTO kamilp_technologie(technologia)
+-- values ('javascript'),('PHP'),('HTML')
+-- SELECT * FROM kamilp_technologie
+-- insert into kamilp_technologie(technologia) select technologia from mateuszk_technologie -- zapozyczenie danych z innej tabeli i dodaje do twojej
+-- describe adaw -- podglad struktury tabeli 
+-- UPDATE kamilp SET technologia_id=1 WHERE id in (2,3);
+-- UPDATE kamilp SET technologia_id=2 WHERE id in (1,4);
+-- SELECT * FROM kamilp
+/*SELECT kamilp.id, imie, nazwisko, projekt, ocena, kamilp_technologie.id as id_tech, technologia
+FROM kamilp, kamilp_technologie
+WHERE kamilp.technologia_id = kamilp_technologie.id*/
+
+
+SELECT kamilp.id, imie, nazwisko, projekt, firstname, lastname
+FROM kamilp, uzytkownicy
+WHERE kamilp.technologia_id = uzytkownicy.id
+
+ 
